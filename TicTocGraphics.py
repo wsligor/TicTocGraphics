@@ -1,7 +1,7 @@
 import sys
 import pygame
 
-from Settings import Settings
+from settings import Settings
 
 def RunGame():
     pygame.init()
@@ -15,6 +15,7 @@ def RunGame():
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 isFinish = True
+        screen.fill(setting.bg_color)
         pygame.display.flip()
 
 RunGame()
