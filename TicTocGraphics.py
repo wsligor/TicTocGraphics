@@ -19,14 +19,18 @@ def RunGame():
 
     fields = Group()
 
-    gf.create_fields()
+    gf.create_fields(fields)
 
     while not isFinish:
+        clock.tick(setting.FPS)
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 isFinish = True
+
+        #gf.update_screen(screen, setting, fields)
         screen.fill(setting.bg_color)
-        gf.update_screen(screen, setting, fields)
+        fields.draw(screen)
+        pygame.display.flip()
 
 
     pygame.quit()
